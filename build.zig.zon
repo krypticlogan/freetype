@@ -1,6 +1,6 @@
 .{
     .name = .freetype,
-    .version = "0.0.0",
+    .version = "0.15.1",
     .fingerprint = 0xac2059b6ffc2b770,
     .paths = .{
         "include",
@@ -14,9 +14,8 @@
     },
     .dependencies = .{
         .brotli = .{
-            .url = "https://pkg.machengine.org/brotli/10961426f03016e273f4f4653eae907e9e2339b6.tar.gz",
-            .hash = "122031789a7c6364c2f99164c1183661bb5fe914ad7336cc224039c7fba649f35c47",
-            .lazy = true,
+            .url = "git+https://github.com/krypticlogan/brotli#b0c9c4ec20ea38763edb2ab8316700b7f3c2399b",
+            .hash = "brotli-0.15.1-NMkNryYoIgC2nv2dg97_qANqXyjbIGifb0JzpD9g_dXv",
         },
     },
 }

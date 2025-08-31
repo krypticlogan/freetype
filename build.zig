@@ -7,12 +7,14 @@ pub fn build(b: *std.Build) void {
     const use_system_zlib = b.option(bool, "use_system_zlib", "Use system zlib") orelse false;
     const enable_brotli = b.option(bool, "enable_brotli", "Build Brotli") orelse true;
 
-    const lib = b.addStaticLibrary(.{
+    const lib = b.addLibrary(.{
         .name = "freetype",
-        .target = target,
-        .optimize = optimize,
+        .root_module = b.createModule(.{
+            .target = target,
+            .optimize = optimize,
+            .link_libc = true
+        }),
     });
-    lib.linkLibC();
     lib.addIncludePath(b.path("include"));
     lib.root_module.addCMacro("FT2_BUILD_LIBRARY", "1");
 
